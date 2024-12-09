@@ -8,7 +8,11 @@ export default {
   ],
   theme: {
     extend: {
-      colors: {
+      fontFamily: {
+        poppins: "var(--font-poppins)",
+        roboto: "var(--font-roboto)",
+      },
+      colors: {  // This was the missing closing bracket for the "extend" object
         background: "var(--background)",
         foreground: "var(--foreground)",
       },
