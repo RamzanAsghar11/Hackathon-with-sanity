@@ -1,20 +1,20 @@
 import type { Metadata } from "next";
-import localFont from "next/font/local";
 import "./globals.css";
 import Footer from "./Components/Footer";
 import Header from "./Components/Header";
 import { Roboto, Poppins } from "next/font/google";
+import { CartProvider } from "./Context/CartContext";
 
 
 const roboto = Roboto({
   subsets: ["latin"],
-  weight: ["400", "700"], // Specify the weights you need
+  weight: ["400", "700"], 
   variable: "--font-roboto",
 });
 
 const poppins = Poppins({
   subsets: ["latin"],
-  weight: ["400", "600"], // Specify the weights you need
+  weight: ["300", "400", "500",  "600" , "700", "800"], 
   variable: "--font-poppins",
 });
 
@@ -34,7 +34,7 @@ export default function RootLayout({
       <body className={`${roboto.variable} ${poppins.variable} font-sans`}>
           
          <Header/>
-         {children}
+         <CartProvider>{children}</CartProvider>
          <Footer/>
       </body>
     </html>

@@ -9,10 +9,9 @@ export default {
   theme: {
     extend: {
       fontFamily: {
-        poppins: "var(--font-poppins)",
-        roboto: "var(--font-roboto)",
+        sans: ["var(--font-poppins)", "var(--font-roboto)", "sans-serif"],
       },
-      colors: {  // This was the missing closing bracket for the "extend" object
+      colors: {
         background: "var(--background)",
         foreground: "var(--foreground)",
       },

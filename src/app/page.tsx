@@ -1,8 +1,11 @@
-import Header from "./Components/Header"
-import Hero from "./Components/Hero"
+
+
 import Picksforyou from "./Components/Picksforyou"
+import Asgaardsofa from "./Components/Asgaardsofa"
 import Blogs from "./Components/Blogs"
-import Instagram from "./About/page"
+import Instagram from "./Components/Instagram"
+import Hero from "./Components/Hero"
+
 
 
 
@@ -12,6 +15,7 @@ const page = () => {
       
       <Hero/>
       <Picksforyou/>
+      <Asgaardsofa/>
       <Blogs/>
       <Instagram/>
       

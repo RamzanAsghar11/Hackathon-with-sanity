@@ -1,6 +1,7 @@
 "use client";
 import Image from "next/image";
 import React, { useState } from "react";
+import { usePathname } from "next/navigation";
 import { TbUserExclamation } from "react-icons/tb";
 import { FiSearch } from "react-icons/fi";
 import { IoMdHeartEmpty } from "react-icons/io";
@@ -8,48 +9,69 @@ import { AiOutlineShoppingCart } from "react-icons/ai";
 import { FaBars, FaTimes } from "react-icons/fa";
 import Link from "next/link";
 
+{
+  /*Using function for hambuger menu*/
+}
+
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const pathname = usePathname();
 
   const toggleMenu = () => {
     setIsOpen(!isOpen);
   };
 
+  {
+    /*Variable for using function for white background on all pages and [#FBEBB5] for home page */
+  }
+
+  const headerBgColor = pathname === "/" ? "bg-[#FBEBB5]" : "bg-white";
+  {
+    /*Logo*/
+  }
   return (
-    <div>
-      <nav className="h-[100px] w-full flex items-center justify-between px-5 md:px-5 lg:px-16">
+    <div className={`w-full ${headerBgColor} transition-colors duration-300`}>
+      <nav className="h-[100px] w-full flex items-center justify-between px-5 md:px-5 lg:px-16  ">
+        {/*Logo*/}
         <div className="md:gap-4">
           <Image
-            src="/Assets/style your spae.png"
-            width={170}
-            height={70}
+            src="/Assets/Shop_logo.png"
+            width={160}
+            height={50}
             alt="Logo"
-            className="md:w-140"
+            className=""
           />
         </div>
 
-        {/* Desktop Navigation */}
+        {/* Desktop Navbar links */}
         <ul className="hidden md:flex gap-8 lg:gap-12 text-xl">
-          <li className="hover:text-gray-600 cursor-pointer">
-            <Link href="/" >Home</Link>
+          <li className="hover:text-gray-600 cursor-pointer ">
+            <Link href="/">Home</Link>
           </li>
-          <li className="hover:text-gray-600 cursor-pointer">
-          <Link href="/Shop" >Shop</Link>
+          <li className="hover:text-gray-600 cursor-pointer ">
+            <Link href="/Shop">Shop</Link>
           </li>
-          <li className="hover:text-gray-600 cursor-pointer">
-            <Link href="/About">About</Link>
+          <li className="hover:text-gray-600 cursor-pointer ">
+            <Link href="/Blogs">Blog</Link>
           </li>
-          <li className="hover:text-gray-600 cursor-pointer">
-          <Link href="/Contact">Contact</Link>
+          <li className="hover:text-gray-600 cursor-pointer ">
+            <Link href="/Contact">Contact</Link>
           </li>
         </ul>
 
         {/* Icons */}
         <div className="hidden md:flex gap-5 lg:gap-8 text-2xl">
-          <TbUserExclamation className="cursor-pointer" />
+          <Link href="/Myaccount">
+            <TbUserExclamation className="cursor-pointer" />
+          </Link>
+
           <FiSearch className="cursor-pointer" />
+          <Link href="/Checkout">
           <IoMdHeartEmpty className="cursor-pointer" />
+          </Link>
+          <Link href="/Cart">
           <AiOutlineShoppingCart className="cursor-pointer" />
+          </Link>
         </div>
 
         {/* Hamburger Menu for Mobile */}
@@ -63,23 +85,48 @@ const Header = () => {
       {/* Mobile Menu */}
       {isOpen && (
         <div className="md:hidden bg-[#FBEBB5] w-full flex flex-col items-center gap-5 py-5 text-xl">
-          <Link href="/" onClick={() => setIsOpen(false)} className="hover:text-gray-600">
+          <Link
+            href="/"
+            onClick={() => setIsOpen(false)}
+            className="hover:text-gray-600"
+          >
             Home
           </Link>
-          <Link href="/shop" onClick={() => setIsOpen(false)} className="hover:text-gray-600">
+          <Link
+            href="/Shop"
+            onClick={() => setIsOpen(false)}
+            className="hover:text-gray-600"
+          >
             Shop
           </Link>
-          <Link href="/about" onClick={() => setIsOpen(false)} className="hover:text-gray-600">
-            About
+          <Link
+            href="/Blogs"
+            onClick={() => setIsOpen(false)}
+            className="hover:text-gray-600"
+          >
+            Blog
           </Link>
-          <Link href="/contact" onClick={() => setIsOpen(false)} className="hover:text-gray-600">
+          <Link
+            href="/Contact"
+            onClick={() => setIsOpen(false)}
+            className="hover:text-gray-600"
+          >
             Contact
           </Link>
+          {/*Mobile icons*/}
           <div className="flex gap-5 text-2xl">
-            <TbUserExclamation />
+            <Link href="/Myaccount">
+              <TbUserExclamation className="cursor-pointer" />
+            </Link>
+           
             <FiSearch />
+            
+            <Link href="/Checkout">
             <IoMdHeartEmpty />
+            </Link>
+            <Link href="/Cart">
             <AiOutlineShoppingCart />
+            </Link>
           </div>
         </div>
       )}

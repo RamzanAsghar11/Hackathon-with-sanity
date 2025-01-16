@@ -2,11 +2,4 @@
 @tailwind components;
 @tailwind utilities;
 
-.font-roboto {
-    font-family: var(--font-roboto), sans-serif;
-  }
-  
-  .font-poppins {
-    font-family: var(--font-poppins), sans-serif;
-  }
 
