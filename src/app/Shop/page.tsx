@@ -7,7 +7,6 @@ import Allpagesmainsection from "../Components/Allpagesmainsection";
 
 import Product from "../Products/Product";
 import { getAllProducts } from "@/sanity/lib/queries";
-import { urlFor } from "@/sanity/lib/image";
 
 
 

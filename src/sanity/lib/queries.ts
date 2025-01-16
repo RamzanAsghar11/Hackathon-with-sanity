@@ -1,6 +1,7 @@
 // lib/queries.js
 import { client } from "./client";
 
+
 // Fetch a product by its ID
 export const getProductById = async (id: string) => {
   const query = `*[_type == "product" && _id == $id][0] { 

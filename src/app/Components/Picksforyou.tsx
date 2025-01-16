@@ -2,7 +2,7 @@ import Link from "next/link";
 
 import Product from "../Products/Product";
 import {  getfourProducts} from "@/sanity/lib/queries";
-import { urlFor } from "@/sanity/lib/image";
+
 
 
 

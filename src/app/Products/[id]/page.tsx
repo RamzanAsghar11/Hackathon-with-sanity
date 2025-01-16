@@ -7,14 +7,14 @@ import { getProductById } from "@/sanity/lib/queries";
 
 
 
-interface ProductPageProps {
-  params: {
-      id: string;
-  };
+interface PageParams {
+  params: Promise<{
+    id: string;
+  }>;
 }
 
 
-export default async function ProductDetailsPage ({ params }: ProductPageProps) {
+export default async function ProductDetailsPage ({ params }: PageParams) {
   const { id } = await params;
   const product = await getProductById(id);
 
